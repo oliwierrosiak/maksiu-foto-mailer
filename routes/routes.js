@@ -7,7 +7,7 @@ router.post('/message',Controller.message)
 
 router.post('/calendar',Controller.calendar)
 
-router.get("/",(req,res)=>{
+router.get("*",(req,res)=>{
     res.sendStatus(500)
 })
 
