@@ -8,7 +8,7 @@ class Controller
         {
             const message = await transporter.sendMail({
                 from:"maksiufotomailer@gmail.com",
-                to: "oliwierrosiak07@gmail.com", 
+                to: "maxbookowski@gmail.com", 
                 subject: "Nowa Wiadomość",
                 text: `Nowa wiadomość od ${req.body.email}: ${req.body.message}`, 
                 html: `<b>Nowa wiadomość od ${req.body.email}</b><br><p>${req.body.message}</p>`, 
@@ -27,7 +27,7 @@ class Controller
         {
             const message = await transporter.sendMail({
                 from:"maksiufotomailer@gmail.com",
-                to: "oliwierrosiak07@gmail.com", 
+                to: "maxbookowski@gmail.com", 
                 subject: "Nowy Termin Sesji",
                 text: `Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}`, 
                 html: `<p>Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}</p>`, 
