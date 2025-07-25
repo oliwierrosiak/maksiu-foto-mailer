@@ -5,7 +5,7 @@ dotenv.config()
 function startServer()
 {
     app.listen(process.env.PORT,()=>{
-        console.log(`Serwer słucha na porcei ${process.env.port}...`)
+        console.log(`Serwer słucha na porcei ${process.env.PORT}...`)
     })
 }
 
