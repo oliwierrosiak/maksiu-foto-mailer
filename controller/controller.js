@@ -1,23 +1,21 @@
-import transporter from "../services/nodemailer.js"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 class Controller
 {
     async message(req,res)
     {
-        console.log(req.body)
         try
         {
-            const message = await transporter.sendMail({
-                from:"maksiufotomailer@gmail.com",
-                to: "oliwierrosiak07@gmail.com", 
-                subject: "Nowa Wiadomość",
-                text: `Nowa wiadomość od ${req.body.email}: ${req.body.message}`, 
-                html: `<b>Nowa wiadomość od ${req.body.email}</b><br><p>${req.body.message}</p>`, 
-            })
-            setTimeout(() => {
-                res.sendStatus(200)
-                
-            }, 3000);
+
+            const data = await resend.emails.send({
+                from: 'onboarding@resend.dev',
+                to: 'oliwierrosiak07@gmail.com',
+                subject: 'Nowa Wiadomość!',
+                html: `<b>Nowa wiadomość od ${req.body.email}</b><br><p>${req.body.message}</p>`
+            });
+            res.sendStatus(200)
         }
         catch(ex)
         {
@@ -30,17 +28,13 @@ class Controller
     {
         try
         {
-            const message = await transporter.sendMail({
-                from:"maksiufotomailer@gmail.com",
-                to: "oliwierrosiak07@gmail.com", 
-                subject: "Nowy Termin Sesji",
-                text: `Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}`, 
-                html: `<p>Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}</p>`, 
-            })
-            setTimeout(() => {
-                res.sendStatus(200)
-                
-            }, 3000);
+            const data = await resend.emails.send({
+                from: 'onboarding@resend.dev',
+                to: 'oliwierrosiak07@gmail.com',
+                subject: 'Nowy Termin Sesji',
+                html: `<p>Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}</p>`
+            });
+            res.sendStatus(200)
         }
         catch(ex)
         {
