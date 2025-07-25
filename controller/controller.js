@@ -4,6 +4,7 @@ class Controller
 {
     async message(req,res)
     {
+        console.log(req.body)
         try
         {
             const message = await transporter.sendMail({
@@ -20,6 +21,7 @@ class Controller
         }
         catch(ex)
         {
+            console.log(ex)
             res.sendStatus(500)
         }
     }
