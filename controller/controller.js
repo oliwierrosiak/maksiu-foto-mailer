@@ -15,6 +15,7 @@ class Controller
                 subject: 'Nowa Wiadomość!',
                 html: `<b>Nowa wiadomość od ${req.body.email}</b><br><p>${req.body.message}</p>`
             });
+            console.log(data)
             res.sendStatus(200)
         }
         catch(ex)
@@ -30,14 +31,16 @@ class Controller
         {
             const data = await resend.emails.send({
                 from: 'onboarding@resend.dev',
-                to: 'oliwierrosiak07@gmail.com',
+                to: 'maxbookowski@gmail.com',
                 subject: 'Nowy Termin Sesji',
                 html: `<p>Użytkownik ${req.body.email} wybrał swoją sesję zdjeciową. Kategoria: ${req.body.category}, data: ${req.body.date}</p>`
             });
+            console.log(data)
             res.sendStatus(200)
         }
         catch(ex)
         {
+            console.log(ex)
             res.sendStatus(500)
         }
        
