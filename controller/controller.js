@@ -11,7 +11,7 @@ class Controller
 
             const data = await resend.emails.send({
                 from: 'onboarding@resend.dev',
-                to: 'oliwierrosiak07@gmail.com',
+                to: 'maxbookowski@gmail.com',
                 subject: 'Nowa Wiadomość!',
                 html: `<b>Nowa wiadomość od ${req.body.email}</b><br><p>${req.body.message}</p>`
             });
